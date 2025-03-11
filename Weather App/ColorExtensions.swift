@@ -13,4 +13,5 @@ extension UIColor {
     static let primaryColor = UIColor(named: "primaryColor")
     static let softGrayColor = UIColor(named: "softGray")
     static let sunIcon = UIImage(named: "sunIcon")
+    static let cloudIcon = UIImage(named: "cloudIcon")
 }
