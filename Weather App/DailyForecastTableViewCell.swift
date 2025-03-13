@@ -16,7 +16,6 @@ class DailyForecastTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.contrastColor
         label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
-        label.text = "TER"
         return label
     }()
     
@@ -25,7 +24,6 @@ class DailyForecastTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.contrastColor
         label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
-        label.text = "min 25C"
         return label
     }()
     
@@ -34,7 +32,6 @@ class DailyForecastTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.contrastColor
         label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
-        label.text = "max 25C"
         return label
     }()
     
@@ -42,7 +39,6 @@ class DailyForecastTableViewCell: UITableViewCell {
        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage.cloudIcon
         return imageView
     }()
     
@@ -68,6 +64,13 @@ class DailyForecastTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func loadData(weekDay: String?, min: String?, max: String?, icon: UIImage?) {
+        minTemperatureLabel.text = min
+        maxTemperatureLabel.text = max
+        weekdayLabel.text = weekDay
+        iconImageView.image = icon
+    }
+    
     private func setupView() {
         backgroundColor = .clear
         selectionStyle = .none
@@ -79,13 +82,12 @@ class DailyForecastTableViewCell: UITableViewCell {
         contentView.addSubview(stackView)
         NSLayoutConstraint.activate([
             weekdayLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 50),
+            iconImageView.heightAnchor.constraint(equalToConstant: 33),
         ])
     }
     
     private func setupConstraints() {
         stackView.setConstraintsToParent(contentView)
     }
-    
-    
     
 }
