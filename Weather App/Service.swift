@@ -9,7 +9,7 @@ import Foundation
 
 class Service {
     private let baseURL = URL(string: "https://api.openweathermap.org/data/3.0/onecall")!
-    private let apiKey = "f8ed4911ad98ac4f98413ea8bb791915"
+    private let apiKey = ""
     private let session = URLSession.shared
     
     func featchDate(city: City, _ completion: @escaping (ForecastResponse?) -> Void) {

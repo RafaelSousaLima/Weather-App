@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     private lazy var headerView: UIView = {
         let view = UIView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
+        view.backgroundColor = .clear
         view.layer.cornerRadius = 20
         return view
     }()
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 20)
         label.textAlignment = .center
-        label.textColor = UIColor.primaryColor
+        label.textColor = UIColor.white
         return label
     }()
     
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 70, weight: .bold)
         label.textAlignment = .left
-        label.textColor = UIColor.primaryColor
+        label.textColor = UIColor.white
         return label
     }()
     
@@ -150,7 +150,8 @@ class ViewController: UIViewController {
         tableView.backgroundColor = .clear
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(DailyForecastTableViewCell.self, forCellReuseIdentifier: DailyForecastTableViewCell.identifier)
+        tableView.register(DailyForecastTableViewCell.self,
+                           forCellReuseIdentifier: DailyForecastTableViewCell.identifier)
         tableView.separatorColor = UIColor.contrastColor
         return tableView
     }()
@@ -181,7 +182,9 @@ class ViewController: UIViewController {
         humidityValueLabel.text = "\(forecastResponse?.current.humidity ?? 0)mm"
         windValueLabel.text = "\(forecastResponse?.current.windSpeed ?? 0)km/h"
         
-        backgroundView.image = forecastResponse?.current.dt.isDayTime() ?? true ? UIImage(named: "background-day") : UIImage(named: "background-night")
+        backgroundView.image = forecastResponse?.current.dt.isDayTime() ?? true
+                                ? UIImage(named: "background-day")
+                                : UIImage(named: "background-night")
         
         hourlyCollectionView.reloadData()
         dailyForecastTableView.reloadData()

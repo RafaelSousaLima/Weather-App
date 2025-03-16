@@ -65,8 +65,8 @@ class DailyForecastTableViewCell: UITableViewCell {
     }
     
     func loadData(weekDay: String?, min: String?, max: String?, icon: UIImage?) {
-        minTemperatureLabel.text = min
-        maxTemperatureLabel.text = max
+        minTemperatureLabel.text = "min \(min!)"
+        maxTemperatureLabel.text = "max \(max!)"
         weekdayLabel.text = weekDay
         iconImageView.image = icon
     }
